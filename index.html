@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chai &amp; Charcha — Karak Chai, Desi Bites &amp; Charcha | Lahore</title>
+  <meta name="description" content="Chai & Charcha — a cozy premium Pakistani chai cafe. Karak chai, doodh patti, samosas, bun kebabs, sizzling brownies and charcha till late.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%AE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark">☕</span>
+        <span>Chai <em>&amp;</em> Charcha</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#why" class="nav-link">Why Us</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-auth">
+          <button class="btn btn-ghost nav-login" id="loginBtn" type="button">Login</button>
+          <div class="user-pill" id="userPill" hidden>
+            <span class="u-avatar" id="uAvatar"></span>
+            <span class="u-name" id="uName"></span>
+            <button class="u-logout" id="logoutBtn" type="button" title="Logout">&times;</button>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-amber nav-cta">Order Now</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1800&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-chip anim-rise">☕ Est. 2024 · Gulberg III, Lahore</span>
+      <h1 class="hero-title anim-rise d1">Chai <span>&amp;</span> Charcha</h1>
+      <p class="hero-sub anim-rise d2">Karak chai, desi bites aur dil khol ke charcha —
+        ek cup, do log, hazar baatein.</p>
+      <div class="hero-actions anim-rise d3">
+        <a href="#menu" class="btn btn-amber btn-lg">Explore Menu</a>
+        <a href="#about" class="btn btn-ghost btn-lg">Our Story</a>
+      </div>
+      <div class="hero-stats anim-rise d4">
+        <div class="hstat"><strong>32+</strong><span>Menu Items</span></div>
+        <div class="hstat"><strong>4.9★</strong><span>1,200+ Reviews</span></div>
+        <div class="hstat"><strong>6AM–12AM</strong><span>Open Daily</span></div>
+      </div>
+    </div>
+    <a href="#menu" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- Ticker ribbon -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Karak Chai</span><i>♥</i><span>Doodh Patti</span><i>♥</i><span>Aloo Samosa</span><i>♥</i><span>Bun Kebab</span><i>♥</i><span>Sizzling Brownie</span><i>♥</i><span>Kashmiri Chai</span><i>♥</i><span>Dil Khol Ke Charcha</span><i>♥</i>
+      <span>Karak Chai</span><i>♥</i><span>Doodh Patti</span><i>♥</i><span>Aloo Samosa</span><i>♥</i><span>Bun Kebab</span><i>♥</i><span>Sizzling Brownie</span><i>♥</i><span>Kashmiri Chai</span><i>♥</i><span>Dil Khol Ke Charcha</span><i>♥</i>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <section class="section menu-section" id="menu">
+    <div class="section-head reveal">
+      <span class="eyebrow">Garam Se Garam</span>
+      <h2>Our <em>Menu</em></h2>
+      <p>Har cup sabzaa, har bite yaadgaar. Click karo aur detail dekho.</p>
+      <div class="chips" id="menuChips"></div>
+    </div>
+    <div id="menuBody"></div>
+  </section>
+
+  <!-- Featured / Popular -->
+  <section class="section featured-section" id="featured">
+    <div class="section-head reveal">
+      <span class="eyebrow">Logon Ki Pasand</span>
+      <h2>Most <em>Popular</em></h2>
+      <p>Ye woh items hain jinke liye log andar tak aate hain.</p>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </section>
+
+  <!-- About -->
+  <section class="section about-section" id="about">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <div class="about-img main" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="about-img thumb" style="background-image:url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="about-badge">☕<br>100%<br><small>Desi Soul</small></div>
+      </div>
+      <div class="about-text reveal d1">
+        <span class="eyebrow">Hamari Kahani</span>
+        <h2>Chai, jo <em>milan</em> ke liye bani</h2>
+        <p>
+          Chai &amp; Charcha 2024 mein is waja se bana tha ke hum chahte the ek aisi jagah jo
+          subah ki <strong>doodh patti</strong> aur raat ki <strong>karak chai</strong> — dono ka maqaam ho.
+          Yahan chai sirf drink nahi, <em>sohbat</em> hai: dost ki takraar, dholki ki hasi,
+          aur ek cup jo thode waqt ke liye poori duniya ko mil jaye.
+        </p>
+        <p>
+          Har pot ek restaurateur grandmother ki tarkeeb par ban-ti hai — chini kam, karak zyada,
+          aur mohabbat woh ingredient jo kabhi recipe mein likha nahi milta.
+        </p>
+        <ul class="about-points">
+          <li>☕ 3-tareeqa karak, doodh patti aur kahwa</li>
+          <li>🍽️ Fresh samose, bun kebab aur desi bites</li>
+          <li>✨ Cozy corners jo charcha ke liye bane hain</li>
+        </ul>
+        <a href="#menu" class="btn btn-amber">Chai peeno</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section why-section" id="why">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kyun Humsafar Banao</span>
+      <h2>Why Choose <em>Us</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-ico">🔥</div>
+        <h3>Karak &amp; Khatta</h3>
+        <p>Bilkul woh desi taste — strong karak, sahi chini, aur har cup par aashiqana dhan.</p>
+      </div>
+      <div class="why-card reveal d1">
+        <div class="why-ico">🥟</div>
+        <h3>Fresh, Har Roz</h3>
+        <p>Samose aur pakoray roz subah talte hain. Khabar nahi, rifaah — sab kuch din ka taza.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-ico">🛋️</div>
+        <h3>Cozy Corners</h3>
+        <p>Kitab, dost, ya khud se milne — har corner charcha aur muskan ke liye bana hai.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-ico">💛</div>
+        <h3>Dil Khol Ke</h3>
+        <p>Wifi-free kahaniyan, jeb-friendly prices, aur woh tawajjo jo chai ke saath honi chahiye.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section reviews-section" id="reviews">
+    <div class="section-head reveal">
+      <span class="eyebrow">Muskurane Ki Wajah</span>
+      <h2>Customer <em>Reviews</em></h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Bunty chai ka sut is level ka hai ke main roz subah yahin aata hoon. Staff ko na poocho, sab apne paas ke dost ban gaye."</p>
+        <div class="reviewer"><span class="r-avatar">AR</span><div><strong>Ahmed Raza</strong><small>Lahore</small></div></div>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>"Kashmiri chai roz jayeem warna ghar mein hangama. Claady rahe aur sizzling brownie ka share mat karna — serious."</p>
+        <div class="reviewer"><span class="r-avatar">FN</span><div><strong>Fatima Noor</strong><small>Karachi</small></div></div>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="stars">★★★★★</div>
+        <p>"Hum do doston ki weekly 'charcha' ki jagah ban gayi hai. Karak chai + bun kebab + 2 ghante ka radio. Kya life."</p>
+        <div class="reviewer"><span class="r-avatar">HS</span><div><strong>Hamza Sheikh</strong><small>Islamabad</small></div></div>
+      </div>
+      <div class="review-card reveal d3">
+        <div class="stars">★★★★½</div>
+        <p>"Ambience bohot cozy hai. Masala chai ki smell hi kafi hai logon ko andar lene ke liye. Highly recommended."</p>
+        <div class="reviewer"><span class="r-avatar">MK</span><div><strong>Maryam Khalid</strong><small>Lahore</small></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Atif bhai ka doodh patti lena qadar hai. Ek ghoont aur hum pagal. Family ke saath Friday routine ban gaya hai."</p>
+        <div class="reviewer"><span class="r-avatar">BA</span><div><strong>Bilal Ahmed</strong><small>Rawalpindi</small></div></div>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>"Chocolate shake aur waffles — bachon ki jannat. Parent lounge bhi hai. Chai & Charcha forever ke liye fan."</p>
+        <div class="reviewer"><span class="r-avatar">ZT</span><div><strong>Zainab Tariq</strong><small>Faisalabad</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Milte Hain</span>
+        <h2>Visit <em>Chai &amp; Charcha</em></h2>
+        <ul class="c-list">
+          <li>📍 14-B, Gulberg III, Main Boulevard, Lahore</li>
+          <li>📞 <a href="tel:+923001234567">0300-1234567</a></li>
+          <li>✉️ <a href="mailto:hello@chaiandcharcha.pk">hello@chaiandcharcha.pk</a></li>
+        </ul>
+        <div class="hours">
+          <h4>Opening Hours</h4>
+          <div class="h-row"><span>Mon – Thu</span><strong>8:00 AM – 11:00 PM</strong></div>
+          <div class="h-row"><span>Fri – Sat</span><strong>8:00 AM – 12:00 AM</strong></div>
+          <div class="h-row"><span>Sunday</span><strong>9:00 AM – 11:00 PM</strong></div>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <div class="contact-form reveal d1">
+        <h3>Reservation ya Feedback</h3>
+        <p>Table-book karo, event discuss karo, ya bas chah ka paigam bhejo.</p>
+        <form id="contactForm">
+          <div class="f-row">
+            <div class="f-field">
+              <label for="cName">Naam</label>
+              <input id="cName" type="text" placeholder="Aapka naam" required>
+            </div>
+            <div class="f-field">
+              <label for="cPhone">Contact</label>
+              <input id="cPhone" type="tel" placeholder="03XX-XXXXXXX" required>
+            </div>
+          </div>
+          <div class="f-field">
+            <label for="cMsg">Paigam</label>
+            <textarea id="cMsg" rows="4" placeholder="Table booking, catering, ya chah ka ehsaas…" required></textarea>
+          </div>
+          <button class="btn btn-amber btn-block" type="submit">Bhejo ♥</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="brand"><span class="brand-mark">☕</span> Chai <em>&amp;</em> Charcha</div>
+        <p>Karak chai, desi bites aur dil khol ke charcha — Gulberg III, Lahore.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#why">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Chai &amp; Charcha · Made with ♥ in Pakistan · Chai aapke, charcha humari.</div>
+  </footer>
+
+  <!-- Item detail modal -->
+  <div class="modal-back" id="itemModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-x" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-media" id="modalMedia">
+        <span class="m-badge" id="modalBadge"></span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-meta">
+          <h3 id="mTitle"></h3>
+          <div class="m-price" id="mPrice"></div>
+        </div>
+        <p class="m-desc" id="mDesc"></p>
+        <div class="m-block">
+          <h4>Ingredients</h4>
+          <div class="chip-row" id="mIngredients"></div>
+        </div>
+        <div class="m-block">
+          <h4>Options &amp; Add-ons <small>— choose karo</small></h4>
+          <div class="chip-row" id="mAddons"></div>
+        </div>
+        <div class="m-note" id="mNote"></div>
+        <button class="btn btn-amber btn-block order-btn" id="mOrder">Add to Order ☕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login modal -->
+  <div class="modal-back auth-back" id="authModal" aria-hidden="true">
+    <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-x" id="authClose" aria-label="Close">&times;</button>
+      <div class="auth-art" aria-hidden="true">
+        <span class="auth-steam">☕</span>
+        <span class="auth-art-tag">Chai aapke,<br>charcha humari.</span>
+      </div>
+      <div class="auth-body">
+        <div class="auth-head">
+          <h3 id="authTitle">Welcome back!</h3>
+          <p>Chai tayar hai — login karo aur apna order shuru.</p>
+        </div>
+        <form id="authForm" novalidate>
+          <div class="a-field">
+            <label for="aEmail">Email</label>
+            <input id="aEmail" type="email" placeholder="aap@example.com" autocomplete="email" required>
+          </div>
+          <div class="a-field">
+            <label for="aPass">Password</label>
+            <input id="aPass" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="current-password" minlength="6" required>
+          </div>
+          <div class="a-hint">Demo: koi bhi email + password (kam se kam 6 letters).</div>
+          <button class="btn btn-amber btn-block" type="submit" id="aSubmit">Login ☕</button>
+        </form>
+        <div class="auth-foot" id="authFoot" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
