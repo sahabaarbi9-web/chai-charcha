@@ -784,6 +784,20 @@ section { scroll-margin-top: 84px; }
 }
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 
+/* ---------- Data-source banner ---------- */
+.db-banner {
+  margin: 18px auto 0;
+  max-width: 720px;
+  background: #3b2a18;
+  border: 1px solid #7a5a2e;
+  color: #f5e6c6;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.db-banner[hidden] { display: none; }
+
 /* ---------- To top ---------- */
 .to-top {
   position: fixed;

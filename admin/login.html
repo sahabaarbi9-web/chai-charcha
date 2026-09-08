@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Login — Chai &amp; Charcha</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="login-body">
+  <form class="login-card" id="loginForm" novalidate>
+    <div class="login-brand"><span>☕</span><strong>Chai &amp; Charcha</strong></div>
+    <h1>Admin Access</h1>
+    <p class="login-sub">Protected area. Secret code chahiye — koi aur maloomat nahi.</p>
+    <input id="code" type="password" placeholder="Secret code" autocomplete="off" maxlength="200" autofocus required>
+    <button class="btn" id="submitBtn" type="submit">Enter Dashboard ☕</button>
+    <p class="login-err" id="err" hidden></p>
+  </form>
+  <div class="toast" id="toast"></div>
+  <script src="shared.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

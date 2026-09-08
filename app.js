@@ -25,7 +25,9 @@ function fallbackImg(emoji) {
 }
 
 /* ---------- Menu data ---------- */
-const CATS = {
+/* CATS/MENU below are the built-in seed (last-resort fallback).
+   On a configured deployment, init() replaces both from Supabase via db.js. */
+let CATS = {
   chai:       { label: 'Chai', icon: '🍵', sub: 'Karak se doodh patti tak — har cup subah ki raunaq' },
   beverages:  { label: 'Hot & Cold Beverages', icon: '🥤', sub: 'Coffee, shakes aur fresh drinks — thanda ya garam, choice aapki' },
   savories:   { label: 'Desi Bites & Savories', icon: '🥟', sub: 'Samose, pakoray, bun kebabs aur karari bites' },
@@ -427,6 +429,62 @@ const MENU = [
   }
 ];
 
+/* ---------- Cloud menu loader (Supabase via db.js) ---------- */
+function showDbBanner(msg) {
+  const b = $('#dbBanner');
+  if (!b) return;
+  b.textContent = msg;
+  b.hidden = false;
+}
+
+async function loadCloudMenu() {
+  try {
+    await (window.__CC_DB__ || Promise.resolve());
+    const client = window.__CC_SUPABASE__;
+    if (!client) throw new Error('supabase client unavailable');
+
+    const [catsRes, prodsRes] = await Promise.all([
+      client.from('categories').select('id,label,icon,sub,sort_order').order('sort_order', { ascending: true }),
+      client.from('products')
+        .select('*')
+        .eq('is_visible', true)
+        .order('sort_order', { ascending: true })
+        .order('created_at', { ascending: true })
+    ]);
+
+    if (catsRes.error) throw catsRes.error;
+    if (prodsRes.error) throw prodsRes.error;
+    if (!Array.isArray(prodsRes.data) || !prodsRes.data.length) throw new Error('empty menu from cloud');
+
+    const nextCats = {};
+    catsRes.data.forEach((c) => { nextCats[c.id] = { label: c.label, icon: c.icon, sub: c.sub }; });
+    Object.keys(CATS).forEach((k) => delete CATS[k]);
+    Object.assign(CATS, nextCats);
+
+    MENU.length = 0;
+    prodsRes.data.forEach((p) => {
+      MENU.push({
+        id: p.id,
+        cat: p.category_id,
+        name: p.name,
+        price: p.price,
+        badge: p.badge,
+        emoji: p.emoji,
+        img: p.img,
+        short: p.short,
+        about: p.about,
+        ingredients: Array.isArray(p.ingredients) ? p.ingredients : [],
+        addons: Array.isArray(p.addons) ? p.addons : []
+      });
+    });
+    return true;
+  } catch (e) {
+    console.warn('[menu] Cloud menu load failed, using built-in seed:', e && e.message);
+    showDbBanner('Menu product list cloud se load nahi ho saki — seed data dikhaya ja raha hai. Thori der baad refresh karein.');
+    return false;
+  }
+}
+
 /* ---------- State ---------- */
 let activeCat = 'all';
 
@@ -732,7 +790,8 @@ function setupAuth() {
 }
 
 /* ---------- Init ---------- */
-function init() {
+async function init() {
+  await loadCloudMenu();
   renderChips();
   renderMenu();
   renderFeatured();

@@ -1,6 +1,16 @@
 {
   "name": "chai-charcha",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Chai & Charcha — karak chai, desi bites aur charcha. Visitor/login activity alerts."
+  "description": "Chai & Charcha — karak chai, desi bites aur charcha. Supabase-backed menu with a secure admin dashboard.",
+  "scripts": {
+    "seed:extract": "node scripts/extract-seed.mjs",
+    "seed:import": "node scripts/import-menu.mjs",
+    "setup:admin": "node scripts/setup-admin.mjs",
+    "test:prod": "node scripts/test-production.mjs",
+    "check": "node --check app.js && node --check db.js && node --check api/config.js && node --check api/notify.js && node --check api/admin/_lib.js && node --check api/admin/login.js && node --check api/admin/session.js && node --check api/admin/logout.js && node --check api/admin/products.js && node --check \"api/admin/products/[id].js\" && node --check api/admin/categories.js && node --check api/admin/stats.js && node --check admin/shared.js && node --check admin/login.js && node --check admin/dashboard.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.116.0"
+  }
 }

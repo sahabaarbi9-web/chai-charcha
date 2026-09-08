@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard — Chai &amp; Charcha</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span>☕</span><strong>Chai &amp; Charcha</strong><small>Admin</small></div>
+      <div class="topbar-actions">
+        <a class="link" href="/" target="_blank" rel="noopener">Public site ↗</a>
+        <button class="btn btn-ghost" id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" id="stats">
+      <div class="stat"><span class="stat-v" id="stTotal">–</span><span class="stat-k">Total items</span></div>
+      <div class="stat"><span class="stat-v" id="stVisible">–</span><span class="stat-k">Visible on menu</span></div>
+      <div class="stat"><span class="stat-v" id="stPopular">–</span><span class="stat-k">Popular badge</span></div>
+      <div class="stat"><span class="stat-v" id="stAvg">–</span><span class="stat-k">Avg price (Rs)</span></div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search items…" autocomplete="off">
+        <select id="catFilter" title="Category">
+          <option value="">All categories</option>
+        </select>
+        <select id="badgeFilter" title="Badge">
+          <option value="">All badges</option>
+          <option value="popular">Popular</option>
+          <option value="new">New</option>
+        </select>
+        <button class="btn" id="addBtn" type="button">+ Add item</button>
+      </div>
+
+      <div class="alert" id="alert" hidden></div>
+
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Badge</th><th>Visible</th><th></th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="empty" hidden>Kuch nahi mila — search/filter change karo, ya naya item add karo.</div>
+      </div>
+
+      <div class="pager" id="pager"></div>
+    </section>
+  </main>
+
+  <!-- Add / edit modal -->
+  <div class="modal-back" id="formModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="formTitle">Add item</h2>
+        <button class="modal-x" id="formClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <form id="itemForm" novalidate>
+        <div class="cols-2">
+          <div class="f"><label>Name *</label><input id="p_name" required maxlength="120"></div>
+          <div class="f"><label>Category *</label><select id="p_cat" required></select></div>
+        </div>
+        <div class="cols-2">
+          <div class="f"><label>Price (Rs) *</label><input id="p_price" type="number" min="0" max="1000000" required></div>
+          <div class="f"><label>Badge</label><select id="p_badge"><option value="">None</option><option value="popular">popular</option><option value="new">new</option></select></div>
+        </div>
+        <div class="cols-2">
+          <div class="f"><label>Emoji</label><input id="p_emoji" maxlength="16" placeholder="🍵"></div>
+          <div class="f"><label>Sort order</label><input id="p_sort" type="number" step="1" value="0"></div>
+        </div>
+        <div class="f"><label>Image URL</label><input id="p_img" maxlength="2000" placeholder="https://…"></div>
+        <div class="f"><label>Short</label><input id="p_short" maxlength="500"></div>
+        <div class="f"><label>About</label><textarea id="p_about" rows="3" maxlength="2000"></textarea></div>
+        <div class="cols-2">
+          <div class="f">
+            <label>Ingredients <small>(ek line pe ek)</small></label>
+            <textarea id="p_ingredients" rows="3"></textarea>
+          </div>
+          <div class="f">
+            <label>Add-ons <small>(Naam | price, ek line pe ek)</small></label>
+            <textarea id="p_addons" rows="3"></textarea>
+          </div>
+        </div>
+        <label class="chk"><input id="p_visible" type="checkbox" checked> Menü par visible</label>
+        <div class="modal-foot">
+          <button class="btn btn-ghost" id="cancelBtn" type="button">Cancel</button>
+          <button class="btn" id="saveBtn" type="submit">Save item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirm -->
+  <div class="modal-back" id="delModal" hidden>
+    <div class="modal modal-sm">
+      <div class="modal-head"><h2>Delete item?</h2></div>
+      <p class="del-note">Ye item puri tarah delete ho jayega (public menu se bhi).</p>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="delCancel" type="button">Cancel</button>
+        <button class="btn btn-danger" id="delConfirm" type="button">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="shared.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
