@@ -50,7 +50,7 @@ const MENU = [
   },
   {
     id: 'c2', cat: 'chai', name: 'Doodh Patti', price: 220, badge: null, emoji: '🥛',
-    img: 'https://images.unsplash.com/photo-1587393855524-087f83070e1c?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/13377433/pexels-photo-13377433.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Gadhi doodh wali classic — jis ka har ghoont aapko ghar ki yaad dilaye.',
     about: 'Sangeeli doodh, acche patti, aur bilkul sahi chini. Doodh Patti woh chai hai jo grandparents ke time se chalti aa rahi hai — aur hum usse abhi bhi waisi hi banaatay hain.',
     ingredients: ['Crush Tea', 'Gadha Doodh', 'Chini', 'Aapki Pasand'],
@@ -97,7 +97,7 @@ const MENU = [
   },
   {
     id: 'c6', cat: 'chai', name: 'Ginger Chai', price: 180, badge: null, emoji: '🫚',
-    img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/29650995/pexels-photo-29650995.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Katti adrak wali chai — thaka sa badan, sab kuch theek.',
     about: 'Taza adrak ka ras, kadak patti, aur halki chini. Winters mein iske bina adhuri — aur summers mein bhi koi shikayat nahi.',
     ingredients: ['Tea Patti', 'Taza Adrak', 'Milk', 'Chini'],
@@ -202,7 +202,7 @@ const MENU = [
   },
   {
     id: 'b8', cat: 'beverages', name: 'Meethi / Khatti Lassi', price: 320, badge: null, emoji: '🥛',
-    img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/18142603/pexels-photo-18142603.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Malai wali dahi se bani — meethi ya khatti, dono kahe — aap ki pasand.',
     about: 'Kadori mein dahi bilkul sahi kadar, malai ka dhaaga aur thandi roti ke saath. Meethi dunya chatapata, khatti thandi jhaans.',
     ingredients: ['Fresh Dahi', 'Malai', 'Chini / Namak', 'Ice'],
@@ -213,7 +213,7 @@ const MENU = [
   },
   {
     id: 'b9', cat: 'beverages', name: 'Mint Iced Tea', price: 380, badge: 'new', emoji: '🍃',
-    img: 'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/34040947/pexels-photo-34040947.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Green tea, podina aur nimbu — hawa ka jhoka, glass mein.',
     about: 'Green tea ko sakht kar ke thanda, podina aur nimbu ke sath — bina chini ki meethas, bilkul taza. Brunch ka sathi.',
     ingredients: ['Green Tea', 'Mint', 'Lemon', 'Honey'],
@@ -237,7 +237,7 @@ const MENU = [
   },
   {
     id: 's2', cat: 'savories', name: 'Chicken Samosa (2 pc)', price: 220, badge: null, emoji: '🐔',
-    img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/8625953/pexels-photo-8625953.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Minced chicken masala ka pura package — crispy aur juicy dono.',
     about: 'Chicken ke saath adrak hari mirch aur secret desi masala — crispy outer, juicy andar. Aisay log bhi confirm hain jo light chaiyay.',
     ingredients: ['Chicken Mince', 'Maida', 'Garam Masala', 'Adrak', 'Tel'],
@@ -248,7 +248,7 @@ const MENU = [
   },
   {
     id: 's3', cat: 'savories', name: 'Mixed Pakora (6 pc)', price: 250, badge: null, emoji: '🧅',
-    img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/13220364/pexels-photo-13220364.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Besan mein aalo, pyaz, palak — barish ka sahara, barsaat hi ho.',
     about: 'Roz taza besan, saath mein mozgama sarson ka tel. Pyaz wale pakorey, aloo wale, aur palak waale — har kisi ki apni pasand hai.',
     ingredients: ['Besan', 'Aloo', 'Pyaz', 'Palak', 'Hari Mirch'],
@@ -281,7 +281,7 @@ const MENU = [
   },
   {
     id: 's6', cat: 'savories', name: 'Club Sandwich', price: 420, badge: 'new', emoji: '👑',
-    img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/959922/pexels-photo-959922.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Teesra layer har jagah nahi milta — ye wala khas hai.',
     about: 'Triple-decker: egg, chicken aur veggies teen layers mein. Fries ke saath toast hote hain — poori malaika night snack.',
     ingredients: ['Chicken', 'Egg', 'Lettuce', 'Bread', 'Mayo', 'Fries'],
@@ -325,7 +325,7 @@ const MENU = [
   },
   {
     id: 's10', cat: 'savories', name: 'Gol Gappa Chaat', price: 220, badge: 'hot', emoji: '🟡',
-    img: 'https://images.unsplash.com/photo-1626290719996-f8277c529e17?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/30641912/pexels-photo-30641912.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Crispy gappay, khatti meethi chaat — ek bite mein poori duniya.',
     about: 'Plated chaat: crisp puris, aloo-chana masala, dahi, imli chutney aur hari mirch ka teer. Desi chaat lovers ka corner.',
     ingredients: ['Puri', 'Aloo', 'Chana', 'Dahi', 'Imli Chutney'],
@@ -372,7 +372,7 @@ const MENU = [
   },
   {
     id: 'd4', cat: 'desserts', name: 'Gulab Jamun (2 pc)', price: 250, badge: null, emoji: '🥮',
-    img: 'https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/15014919/pexels-photo-15014919.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Naram gud ki andaaz mein — chini ki chashni, royoon ka jhoola.',
     about: 'Khoya aur maida — ghee mein halke tal kar chashni mein dooba. Garam garam wale hain sab se zyada maqbool.',
     ingredients: ['Khoya', 'Maida', 'Elaichi', 'Chashni (Chini)'],
@@ -383,7 +383,7 @@ const MENU = [
   },
   {
     id: 'd5', cat: 'desserts', name: 'Kulfi Falooda', price: 480, badge: null, emoji: '🍨',
-    img: 'https://images.unsplash.com/photo-1488900128323-21503983a07e?auto=format&fit=crop&w=900&q=80',
+    img: 'https://cdn.pixabay.com/photo/2021/09/07/10/14/matka-kulfi-6603515_1280.jpg',
     short: 'Rabri, kulfi, falooda aur meethe sapne — ek glass mein parivartan.',
     about: 'Hand-churned kulfi, taza falooda, rabri aur meethi ya khushboo wali rooh afza. Sukoon ka poora package.',
     ingredients: ['Kulfi', 'Falooda', 'Rabri', 'Rose Syrup'],
@@ -416,7 +416,7 @@ const MENU = [
   },
   {
     id: 'd8', cat: 'desserts', name: 'Rasmalai', price: 350, badge: null, emoji: '🤍',
-    img: 'https://images.unsplash.com/photo-1559628233-099b99d8dc1f?auto=format&fit=crop&w=900&q=80',
+    img: 'https://cdn.pixabay.com/photo/2018/10/20/10/43/ras-malai-3760549_1280.jpg',
     short: 'Naram chenna, saffron doodh — mithai ka mumal dupatta.',
     about: 'Rabri mein doobay hui rasmalai, kesar k pista ke saath. Classic dessert jo kisi bhi daawat ko mukammal karta hai.',
     ingredients: ['Chenna', 'Rabri', 'Kesar', 'Pista', 'Elaichi'],
