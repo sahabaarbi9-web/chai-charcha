@@ -62,7 +62,7 @@ const MENU = [
   },
   {
     id: 'c3', cat: 'chai', name: 'Masala Chai', price: 200, badge: 'popular', emoji: '🌶️',
-    img: 'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/37186989/pexels-photo-37186989.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Adrak, ilaichi aur darchini ka jadoo — mausam chahe kuch bhi ho.',
     about: 'Chaar masalon ka khufiya formula: adrak, ilaichi, darchini aur laung. Har ghoont mein aapko garmi ka ehsaas hoga jo thande mausam mein jaan daal de.',
     ingredients: ['Tea Patti', 'Adrak', 'Ilaichi', 'Darchini', 'Laung', 'Doodh'],
