@@ -157,7 +157,7 @@ const MENU = [
   },
   {
     id: 'b4', cat: 'beverages', name: 'Chocolate Shake', price: 520, badge: 'popular', emoji: '🥤',
-    img: 'https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/13676051/pexels-photo-13676051.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Chocolate ka ziyada se ziyada — whipped cream aur drizzle k sath.',
     about: 'Dark chocolate ganache, doodh aur gelato — sab blended aur upar par creamy foam. Ye shake un logon ke liye hai jo "thoda kam" bolna h i nahi jaante.',
     ingredients: ['Dark Chocolate', 'Milk', 'Vanilla Gelato', 'Cream'],
@@ -169,7 +169,7 @@ const MENU = [
   },
   {
     id: 'b5', cat: 'beverages', name: 'Mango Shake', price: 550, badge: null, emoji: '🥭',
-    img: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/14930475/pexels-photo-14930475.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Sindhri mango ka mausam saal bhar — gaddha aur meetha.',
     about: 'Fresh Sindhri mangoes, thanda doodh aur malai ka lams. Jab mango season na ho to hum acha purana quality use karte hain — promise, swadd same.',
     ingredients: ['Sindhri Mango', 'Milk', 'Malai', 'Ice'],
@@ -180,7 +180,7 @@ const MENU = [
   },
   {
     id: 'b6', cat: 'beverages', name: 'Strawberry Shake', price: 520, badge: null, emoji: '🍓',
-    img: 'https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg?auto=compress&cs=tinysrgb&w=900',
     short: 'Taaza strawberries ka gulaab rang — halka sa meetha, pura dilkash.',
     about: 'Fresh strawberry puree, vanilla gelato aur doodh — blended to creamy perfection. Gulaabi shake jiski selfie lena farz hai.',
     ingredients: ['Strawberry', 'Milk', 'Vanilla Gelato', 'Honey'],
