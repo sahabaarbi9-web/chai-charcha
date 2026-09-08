@@ -2,8 +2,5 @@
   "name": "chai-charcha",
   "version": "1.0.0",
   "private": true,
-  "description": "Chai & Charcha — karak chai, desi bites aur charcha. Visitor/login activity alerts.",
-  "dependencies": {
-    "nodemailer": "^6.9.16"
-  }
+  "description": "Chai & Charcha — karak chai, desi bites aur charcha. Visitor/login activity alerts."
 }

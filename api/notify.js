@@ -1,13 +1,11 @@
 /* Vercel serverless function — visitor/login activity alerts.
-   Email transport: Gmail SMTP via nodemailer (uses YOUR Gmail + app password).
+   Email transport: SendGrid v3 HTTP API (free tier, 100 emails/day).
    Env vars (production):
-     GMAIL_USER      — your Gmail address (e.g. you@gmail.com)
-     GMAIL_APP_PASS  — 16-char Gmail App Password (myaccount.google.com/apppasswords)
-     EMAIL_TO        — optional; recipient, defaults to GMAIL_USER
+     SENDGRID_API_KEY  — SendGrid v3 API key (app.sendgrid.com → Settings → API Keys)
+     SENDER_EMAIL      — verified Single Sender email on SendGrid
+     EMAIL_TO          — your email that receives the notifications
  */
-const nodemailer = require('nodemailer');
-
-const REQUIRED = ['GMAIL_USER', 'GMAIL_APP_PASS'];
+const REQUIRED = ['SENDGRID_API_KEY', 'SENDER_EMAIL', 'EMAIL_TO'];
 
 const isValidType = (t) => t === 'visit' || t === 'login';
 
@@ -133,29 +131,23 @@ function buildEmail(d) {
   };
 }
 
-/* ---- Gmail SMTP send ---- */
-let transporter = null;
-function getTransporter() {
-  if (!transporter) {
-    transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASS },
-    });
-  }
-  return transporter;
-}
-
+/* ---- SendGrid send ---- */
 async function sendEmail(mail) {
-  const to = process.env.EMAIL_TO || process.env.GMAIL_USER;
-  const info = await getTransporter().sendMail({
-    from: `"Chai & Charcha Alerts" <${process.env.GMAIL_USER}>`,
-    to,
-    subject: mail.subject,
-    html: mail.html,
+  const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+    },
+    body: JSON.stringify({
+      personalizations: [{ to: [{ email: process.env.EMAIL_TO }] }],
+      from: { email: process.env.SENDER_EMAIL, name: 'Chai & Charcha Alerts' },
+      subject: mail.subject,
+      content: [{ type: 'text/html', value: mail.html }],
+    }),
+    signal: AbortSignal.timeout(10000),
   });
-  return info;
+  return res;
 }
 
 /* ---- Vercel handler ---- */
@@ -212,7 +204,12 @@ module.exports = async (req, res) => {
   });
 
   try {
-    await sendEmail(mail);
+    const sg = await sendEmail(mail);
+    if (!sg.ok) {
+      const txt = await sg.text().catch(() => '');
+      console.error('SendGrid error', sg.status, txt.slice(0, 800));
+      return res.status(502).json({ ok: false, error: 'SendGrid error ' + sg.status });
+    }
     console.log(`[${type}] ${mail.subject}`);
     return res.json({ ok: true, sent: true, type });
   } catch (e) {
